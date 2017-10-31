@@ -1,0 +1,8 @@
+#!/bin/sh
+if test -n "$LUA_NO_JIT"; then {
+	export LUA_51_INTERPRETER=lua5.1;
+}; else {
+	export LUA_51_INTERPRETER=luajit;
+}; fi;
+eval "$(luarocks-5.1 path --bin)";
+exec "$LUA_51_INTERPRETER" "$@";
